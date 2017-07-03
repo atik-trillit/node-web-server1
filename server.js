@@ -31,7 +31,9 @@ app.set('view engine','hbs');
 app.use(express.static(__dirname + '/public'));
 
 app.get('/',(req,res)=>{
-  res.send('Hello Express');
+  res.render('home.hbs',{
+    pageTitle:'Home Page'
+  })
 
 });
 
@@ -42,6 +44,12 @@ app.get('/about',(req,res)=>{
   });
 
 });
+
+app.get('/projects',(req,res)=>{
+  res.render('projects.hbs',{
+    pageTitle:'Projects'
+  })
+})
 
 app.get('/info',(req,res)=>{
   res.render('info.hbs',{
